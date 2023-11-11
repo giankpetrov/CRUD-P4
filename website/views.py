@@ -7,5 +7,10 @@ def home(request):
 
 
 def contacto(request):
-    """ View to return to index page """
+    """ View to return to contact page """
     return render(request, 'contacto.html', {})
+
+
+def booking(request):
+    """ View to return to booking page """
+    return render(request, 'booking.html', {})
