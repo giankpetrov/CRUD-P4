@@ -6,9 +6,9 @@ def home(request):
     return render(request, 'home.html', {})
 
 
-def contacto(request):
-    """ View to return to contact page """
-    return render(request, 'contacto.html', {})
+# def contacto(request):
+#    """ View to return to contact page """
+#    return render(request, 'contacto.html', {})
 
 
 def booking(request):
