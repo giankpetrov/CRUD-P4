@@ -2,5 +2,13 @@
 {% load static %}
 
 {% block content %}
+    {% if user.is_authenticated %}
     {% include 'includes/reservation.html' %}
+    {% else %}
+    <div class="container-xxl container-booking bg-dark hero-header">
+        <div class="container text-center my-0 pt-5 pb-5">
+            <h3 class="display-5 text-white mb-3 animated slideInDown">Please, login or register in order to book a table</h3>
+        </div>
+    </div>
+    {% endif %}
 {% endblock %}
