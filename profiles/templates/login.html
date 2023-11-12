@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block content %}
+    {% include 'includes/profile.html' %}
     {% if messages %}
     <div class="modal" tabindex="-1" role="dialog" id="errorModal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Logout Success</h5>
+                    <h5 class="modal-title">Error</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -28,9 +29,4 @@
         });
     </script>
     {% endif %}
-    {% include 'includes/hero.html' %}
-    {% include 'includes/service.html' %}
-    {% include 'includes/aboutus.html' %}
-    {% include 'includes/menu.html' %}
-    {% include 'includes/team.html' %}
 {% endblock %}
