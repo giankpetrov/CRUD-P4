@@ -9,6 +9,15 @@
         </nav>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        // Initialize date picker
+        $('#datepicker').datepicker({
+            startDate: new Date(), // Prevent selecting dates in the past
+            autoclose: true,
+        });
+    });
+</script>
 <!-- Reservation Start -->
 <div id="reservation" class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="row g-0">
@@ -35,12 +44,39 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="input-group form-floating date" data-provide="datepicker">
+                                <input type="text" class="form-control" id="datepicker" placeholder="Select a date"
+                                    data-date-format="yyyy-mm-dd" readonly>
+                                <label for="datepicker">Date</label>
+                                <div class="input-group-append">
+                                    <span class="input-group-text py-3"><i class="bi bi-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="select1">
+                                    <option value="9">9AM</option>
+                                    <option value="10">10AM</option>
+                                    <option value="11">11AM</option>
+                                    <option value="12">12M</option>
+                                    <option value="13">1PM</option>
+                                    <option value="14">2PM</option>
+                                    <option value="15">3PM</option>
+                                    <option value="16">4PM</option>
+                                    <option value="17">5PM</option>
+                                    <option value="18">6PM</option>
+                                </select>
+                                <label for="select1">Time</label>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-6">
                             <div class="form-floating date" id="date3" data-target-input="nearest">
                                 <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time"
                                     data-target="#date3" data-toggle="datetimepicker" />
                                 <label for="datetime">Date & Time</label>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <select class="form-select" id="select1">
