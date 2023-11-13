@@ -3,6 +3,32 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+    {% if messages %}
+    <div class="modal" tabindex="-1" role="dialog" id="errorModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Display the error modal on page load
+        $(document).ready(function () {
+            $('#errorModal').modal('show');
+        });
+    </script>
+    {% endif %}
     {% include 'includes/reservation.html' %}
     {% else %}
     <div class="container-xxl container-booking bg-dark hero-header">

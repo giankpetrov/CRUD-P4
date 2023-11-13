@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Register</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Register</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+<!--form-->
+<div class="shadow p-4 mb-5 bg-light-subtle rounded">
+    <form class="pb-5 px-5" action="{% url 'register_user' %}" method=POST>
+        {% csrf_token %}
+            {{ form }}
+            <br/>
+            <br />
+            <input type="submit" value="Submit" class="btn btn-secondary">    
+    </form>
+</div>
+{% if messages %}
+<div class="modal" tabindex="-1" role="dialog" id="errorModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if form.errors %}
+<div class="modal" tabindex="-1" role="dialog" id="errorModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                There was an error with your registration, please try again.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Display the error modal on page load
+    $(document).ready(function () {
+        $('#errorModal').modal('show');
+    });
+</script>
+{% endif %}
+{% endblock %}

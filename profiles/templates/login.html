@@ -2,7 +2,34 @@
 {% load static %}
 
 {% block content %}
-    {% include 'includes/profile.html' %}
+    <div class="container-xxl py-5 bg-dark hero-header mb-5">
+        <div class="container text-center my-5 pt-5 pb-4">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Login</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Login</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!--form-->
+    <div class="shadow p-4 mb-5 bg-light-subtle rounded">
+        <form action="" method=POST>
+            {% csrf_token %}
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </form>
+        </form>
+    </div>
     {% if messages %}
     <div class="modal" tabindex="-1" role="dialog" id="errorModal">
         <div class="modal-dialog" role="document">
