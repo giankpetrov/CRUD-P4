@@ -89,7 +89,15 @@
     {% block postloadjs %}
     {% endblock %}
 
-
+<script>
+    $(document).ready(function () {
+        // Initialize date picker
+        $('#datepicker').datepicker({
+            startDate: new Date(), // Prevent selecting dates in the past
+            autoclose: true,
+        });
+    });
+</script>
 </body>
 
 </html>
