@@ -13,32 +13,34 @@
 <div id="reservation" class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="row g-0">
         <div class="col-md-12 bg-dark d-flex align-items-center">
-            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="mx-auto p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h1 class="section-title ff-secondary text-start text-primary fw-normal">Your Reservations</h1>
                 <!--<h1 class="text-white mb-4">Book A Table Online</h1>-->
-                <div class="container">
-                    <ul>
+                <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
                         {% for reservation in reservations %}
-                        <div class="card my-3" style="width: 15rem;">
-                            <div class="card-body">
-                                <h5 class="text-center card-title">Reservation #{{ reservation.id }}</h5>
-                            </div>
-                            <ul class="px-4 list-group list-group-flush" style="list-style-type: none;">
-                                <li>
-                                    <strong>Name:</strong> {{ reservation.name }}<br>
-                                    <strong>Email:</strong> {{ reservation.email }}<br>
-                                    <strong>Date:</strong> {{ reservation.date }}<br>
-                                    <strong>Time:</strong> {{ reservation.time }}<br>
-                                    <strong>Number of People:</strong> {{ reservation.no_of_people }}<br>
-                                    <strong>Special Requests:</strong> {{ reservation.special_request }}<br>
-                                </li>
-                            </ul>
-                            <div class="card-body">
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="text-center card-title">Reservation #{{ reservation.id }}</h5>
+                                </div>
+                                <ul class="px-4 list-group list-group-flush" style="list-style-type: none;">
+                                    <li>
+                                        <strong>Name:</strong> {{ reservation.name }}<br>
+                                        <strong>Email:</strong> {{ reservation.email }}<br>
+                                        <strong>Date:</strong> {{ reservation.date }}<br>
+                                        <strong>Time:</strong> {{ reservation.time }}<br>
+                                        <strong>Number of People:</strong> {{ reservation.no_of_people }}<br>
+                                        <strong>Special Requests:</strong> {{ reservation.special_request }}<br>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
                         </div>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
