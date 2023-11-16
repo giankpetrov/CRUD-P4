@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
 from .forms import ReservationForm
+from .models import Reservation
 
 
 def login_user(request):
@@ -13,7 +14,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('booking')
+            return redirect('reservation_list')
         else:
             messages.error(request,
                            "There was an error logging in, please try again")
@@ -59,9 +60,16 @@ def make_reservation(request):
             if request.user.is_authenticated:
                 reservation.user = request.user
             reservation.save()
+            messages.success(request,
+                             "We have received your reservation")
             # Redirect to a success page or wherever you want
             return redirect('make_reservation')
     else:
         form = ReservationForm()
 
-    return render(request, 'booking.html', {'form': form})
+    return render(request, 'make_reservation.html', {'form': form})
+
+
+def reservation_list(request):
+    reservations = Reservation.objects.all()
+    return render(request, 'reservation_list.html', {'reservations': reservations})

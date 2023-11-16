@@ -20,7 +20,7 @@
             <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                 <h1 class="text-white mb-4">Book A Table Online</h1>
-                <form method="post" action="{% url 'make_reservation' %}">
+                <form class="text-white" method="post" action="{% url 'make_reservation' %}">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit">Submit</button>

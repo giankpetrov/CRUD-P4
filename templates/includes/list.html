@@ -1,0 +1,73 @@
+<div class="container-xxl py-5 bg-dark hero-header">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">My Bookings</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">My Bookings</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Reservation Start -->
+<div id="reservation" class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="col-md-12 bg-dark d-flex align-items-center">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h1 class="section-title ff-secondary text-start text-primary fw-normal">Your Reservations</h1>
+                <!--<h1 class="text-white mb-4">Book A Table Online</h1>-->
+                <div class="container">
+                    <ul>
+                        {% for reservation in reservations %}
+                        <div class="card my-3" style="width: 15rem;">
+                            <div class="card-body">
+                                <h5 class="text-center card-title">Reservation #{{ reservation.id }}</h5>
+                            </div>
+                            <ul class="px-4 list-group list-group-flush" style="list-style-type: none;">
+                                <li>
+                                    <strong>Name:</strong> {{ reservation.name }}<br>
+                                    <strong>Email:</strong> {{ reservation.email }}<br>
+                                    <strong>Date:</strong> {{ reservation.date }}<br>
+                                    <strong>Time:</strong> {{ reservation.time }}<br>
+                                    <strong>Number of People:</strong> {{ reservation.no_of_people }}<br>
+                                    <strong>Special Requests:</strong> {{ reservation.special_request }}<br>
+                                </li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                        allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // Initialize date picker
+        $('#datepicker').datepicker({
+            startDate: new Date(), // Prevent selecting dates in the past
+            autoclose: true,
+        });
+    });
+</script>
+<!-- Reservation End -->
