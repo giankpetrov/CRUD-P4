@@ -155,3 +155,5 @@ The project should now be connected and deployed to Heroku!
 - Font from [Google Fonts](https://fonts.google.com/)
 - Concept design and Theme [HTML Codex.](https://htmlcodex.com/) Distributed by[ThemeWagon.](https://themewagon.com/)
 - Tech Stack Icons [github.com/Marwin1991](https://github.com/marwin1991/profile-technology-icons)
+
+Namaste ☸
