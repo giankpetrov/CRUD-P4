@@ -64,14 +64,14 @@ Superusers: Users with elevated privileges who can access and manage all reserva
 
 I used [Coolors.co](https://coolors.co/) to keep a control on the color scheme selected.
 <kbd>
-<img height="400" src="https://coolors.co/fea116-f1f8ff-0f172b">
+<img height="400" src="https://github.com/giankpetrov/CRUD-P4/blob/main/readme/colorcode.PNG">
 </kbd>
 
 ### __Contrast Checker__
 
 I used [Coolors.co](https://coolors.co/) contrast checker tool having a super result of 17.83.
 <kbd>
-<img height="400" src="https://github.com/giankpetrov/WorldCupQuiz/blob/main/docs/readme/Contrast%20Checker.PNG">
+<img height="400" src="https://github.com/giankpetrov/CRUD-P4/blob/main/readme/contrastchecker.PNG">
 </kbd>
 
 ### __Future development__
