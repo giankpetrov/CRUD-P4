@@ -7,8 +7,10 @@ from .forms import RegisterUserForm
 from .forms import ReservationForm
 from .models import Reservation
 
+
 def is_superuser(user):
     return user.is_superuser
+
 
 def login_user(request):
     if request.method == "POST":
@@ -72,21 +74,16 @@ def make_reservation(request):
 
     return render(request, 'make_reservation.html', {'form': form})
 
-@login_required
+
 def reservation_list(request):
-    if request.user.is_superuser:
-        reservations = Reservation.objects.all()
-    else:
-        reservations = Reservation.objects.filter(user=request.user)
-        
-    return render(request, 'reservation_list.html',
-                  {'reservations': reservations})
+    reservations = Reservation.objects.all()
+    return render(request, 'reservation_list.html', {'reservations': reservations})
 
 
 def update_list(request, id):
     reservation = get_object_or_404(Reservation, pk=id)
     form = ReservationForm(request.POST or None, instance=reservation)
-    
+
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -101,6 +98,6 @@ def delete_reservation(request, id):
     reservation = get_object_or_404(Reservation, pk=id)
     reservation.delete()
     messages.success(request,
-                            "We have delete your reservation")
-        # Redirect to a success page or wherever you want
+                     "We have delete your reservation")
+    # Redirect to a success page or wherever you want
     return redirect('reservation_list')
