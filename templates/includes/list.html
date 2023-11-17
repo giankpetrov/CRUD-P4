@@ -9,78 +9,63 @@
         </nav>
     </div>
 </div>
+
 <!-- Reservation Start -->
 <div id="reservation" class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
     <div class="row g-0">
         <div class="pb-5 col-md-12 bg-dark d-flex align-items-center">
-            <div class="mx-auto pt-3 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="mx-5 pt-3 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
                 <h1 class="pt-3 section-title ff-secondary text-start text-primary fw-normal">Your Reservations</h1>
                 <!--<h1 class="text-white mb-4">Book A Table Online</h1>-->
                 {% if reservations %}
-                <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row row-cols-md-12 g-3">
-                        {% for reservation in reservations %}
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="text-center card-title">Reservation #{{ reservation.id }}</h5>
-                                </div>
-                                <ul class="px-4 list-group list-group-flush" style="list-style-type: none;">
-                                    <li>
-                                        <strong>Name:</strong> {{ reservation.name }}<br>
-                                        <strong>Email:</strong> {{ reservation.email }}<br>
-                                        <strong>Date:</strong> {{ reservation.date }}<br>
-                                        <strong>Time:</strong> {{ reservation.time }}<br>
-                                        <strong>Number of People:</strong> {{ reservation.no_of_people }}<br>
-                                        <strong>Special Requests:</strong> {{ reservation.special_request }}<br>
-                                    </li>
-                                </ul>
-                                <div class="card-body">
-                                    <a href="{% url 'update_list' reservation.id %}" class="btn btn-warning">Update</a>
-                                    <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Delete</a>
+                    <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 overflow-hidden">
+                            {% for reservation in reservations %}
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-center card-title">Reservation #{{ reservation.id }}</h5>
+                                    </div>
+                                    <ul class="px-4 list-group list-group-flush" style="list-style-type: none;">
+                                        <li>
+                                            <strong>Name:</strong> {{ reservation.name }}<br>
+                                            <strong>Email:</strong> {{ reservation.email }}<br>
+                                            <strong>Date:</strong> {{ reservation.date }}<br>
+                                            <strong>Time:</strong> {{ reservation.time }}<br>
+                                            <strong>Number of People:</strong> {{ reservation.no_of_people }}<br>
+                                            <strong>Special Requests:</strong> {{ reservation.special_request }}<br>
+                                        </li>
+                                    </ul>
+                                    <div class="card-body">
+                                        <a href="{% url 'update_list' reservation.id %}" class="btn btn-warning">Update</a>
+                                        <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Delete</a>
+                                    </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
-                </div>
                 {% else %}
-                <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row row-cols-1 row-cols-md-1 g-3">
-                        <div class="container-xxl container-booking bg-dark hero-header">
-                            <div class="container row-cols-md-1 text-center my-0 pt-5 pb-5">
-                                <h1 class="display-5 text-white mb-3 animated slideInDown">
-                                    It seems you don't have any reservations
-                                </h1>
-                                <h4 class="text-white">
-                                    If want to book a reservation, you can do it <a href="{% url 'make_reservation' %}">Here</a>
-                                </h4>
+                    <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="row row-cols-1 row-cols-md-1 g-3">
+                            <div class="container-xxl container-booking bg-dark hero-header">
+                                <div class="container row-cols-md-1 text-center my-0 pt-5 pb-5">
+                                    <h1 class="display-5 text-white mb-3 animated slideInDown">
+                                        It seems you don't have any reservations
+                                    </h1>
+                                    <h4 class="text-white">
+                                        If you want to book a reservation, you can do it <a href="{% url 'make_reservation' %}">Here</a>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
     $(document).ready(function () {
         // Initialize date picker

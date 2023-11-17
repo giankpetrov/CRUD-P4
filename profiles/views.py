@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import RegisterUserForm
 from .forms import ReservationForm
 from .models import Reservation
 
+def is_superuser(user):
+    return user.is_superuser
 
 def login_user(request):
     if request.method == "POST":
@@ -63,16 +66,20 @@ def make_reservation(request):
             messages.success(request,
                              "We have received your reservation")
             # Redirect to a success page or wherever you want
-            return redirect('make_reservation')
+            return redirect('reservation_list')
     else:
         form = ReservationForm()
 
     return render(request, 'make_reservation.html', {'form': form})
 
-
+@login_required
 def reservation_list(request):
-    reservations = Reservation.objects.all()
-    return render(request, 'reservation_list.html', 
+    if request.user.is_superuser:
+        reservations = Reservation.objects.all()
+    else:
+        reservations = Reservation.objects.filter(user=request.user)
+        
+    return render(request, 'reservation_list.html',
                   {'reservations': reservations})
 
 
