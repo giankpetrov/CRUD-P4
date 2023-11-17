@@ -88,3 +88,12 @@ def update_list(request, id):
     return render(request, 'update_reservation.html',
                   {'reservation': reservation,
                    'form': form})
+
+
+def delete_reservation(request, id):
+    reservation = get_object_or_404(Reservation, pk=id)
+    reservation.delete()
+    messages.success(request,
+                            "We have delete your reservation")
+        # Redirect to a success page or wherever you want
+    return redirect('reservation_list')
