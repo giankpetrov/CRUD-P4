@@ -46,6 +46,21 @@
                                     {% endfor %}
                                 </div>
                             </div>
+                        {% else %}
+                            <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="row row-cols-1 row-cols-md-1 g-3">
+                                    <div class="container-xxl container-booking bg-dark">
+                                        <div class="container row-cols-md-1 text-center my-0 pt-5 pb-5">
+                                            <h1 class="display-5 text-white mb-3 animated slideInDown">
+                                                It seems you don't have any reservations
+                                            </h1>
+                                            <h4 class="text-white">
+                                                If you want to book a reservation, you can do it <a href="{% url 'make_reservation' %}">Here</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         {% endif %}
                     {% else %}
                         {% if reservations %}
@@ -81,7 +96,7 @@
                         {% else %}
                             <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="row row-cols-1 row-cols-md-1 g-3">
-                                    <div class="container-xxl container-booking bg-dark hero-header">
+                                    <div class="container-xxl container-booking bg-dark">
                                         <div class="container row-cols-md-1 text-center my-0 pt-5 pb-5">
                                             <h1 class="display-5 text-white mb-3 animated slideInDown">
                                                 It seems you don't have any reservations
