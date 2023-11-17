@@ -64,7 +64,7 @@ Superusers: Users with elevated privileges who can access and manage all reserva
 
 I used [Coolors.co](https://coolors.co/) to keep a control on the color scheme selected.
 <kbd>
-<img height="400" src="https://github.com/giankpetrov/CRUD-P4/blob/main/readme/colorcode.PNG">
+<img height="400" src="https://github.com/giankpetrov/CRUD-P4/blob/main/readme/colorcode.png">
 </kbd>
 
 ### __Contrast Checker__
