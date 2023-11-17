@@ -3,6 +3,8 @@
 
 Welcome to Restoran, your go-to platform for hassle-free reservation management. If you have a restaurant and you want to provide a better service to your customers we streamlines the reservation process. Users can create accounts, log in, and enjoy the convenience of managing their reservations effortlessly.
 
+![Mockup](readme/all-devices-white.png "Website preview at different resolutions")
+
 [Live link to website](https://crud-p4-6d939b734527.herokuapp.com/)
 ## __Tech Stack__
 
@@ -61,7 +63,7 @@ Superusers: Users with elevated privileges who can access and manage all reserva
 ### __Color Scheme__
 
 I used [Coolors.co](https://coolors.co/) to keep a control on the color scheme selected.
-
+<kbd>
 <img height="400" src="https://coolors.co/fea116-f1f8ff-0f172b">
 </kbd>
 
