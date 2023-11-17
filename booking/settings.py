@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['giankpetrov.herokuapp.com', 
-                 'https://crud-p4-6d939b734527.herokuapp.com/',
+ALLOWED_HOSTS = ['giankpetrov.herokuapp.com',
+                 'crud-p4-6d939b734527.herokuapp.com/',
                  'localhost',
                  '8000-giankpetrov-crud-p4-i8zp2s9rot.us2.codeanyapp.com']
 
