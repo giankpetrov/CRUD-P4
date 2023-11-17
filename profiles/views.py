@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -72,4 +72,19 @@ def make_reservation(request):
 
 def reservation_list(request):
     reservations = Reservation.objects.all()
-    return render(request, 'reservation_list.html', {'reservations': reservations})
+    return render(request, 'reservation_list.html', 
+                  {'reservations': reservations})
+
+
+def update_list(request, id):
+    reservation = get_object_or_404(Reservation, pk=id)
+    form = ReservationForm(request.POST or None, instance=reservation)
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('reservation_list')
+
+    return render(request, 'update_reservation.html',
+                  {'reservation': reservation,
+                   'form': form})

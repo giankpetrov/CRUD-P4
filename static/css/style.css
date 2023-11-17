@@ -28,6 +28,11 @@
     padding-top: 10rem;
 }
 /********************/
+/********** Style form **********/
+form {
+    padding: 1rem;
+}
+/********************/
 .ff-secondary {
     font-family: 'Pacifico', cursive;
 }

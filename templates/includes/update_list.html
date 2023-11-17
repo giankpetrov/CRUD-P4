@@ -1,0 +1,91 @@
+<div class="container-xxl py-5 bg-dark hero-header">
+    <div class="container text-center my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Update</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Update</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Reservation Start -->
+<div id="reservation" class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="col-md-12 bg-dark d-flex align-items-center">
+            <div class="mx-auto p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h1 class="section-title ff-secondary text-start text-primary fw-normal">Your Reservation</h1>
+                <!--<h1 class="text-white mb-4">Book A Table Online</h1>-->
+                <div class="container-xxl px-0 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="text-center card-title">Update Reservation #{{ reservation.id }}</h5>
+                            </div>
+                            <form class="p3" action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="{{ form.name.id_for_label }}">Name:</label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.email.id_for_label }}">Email:</label>
+                                    {{ form.email }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_date">Date:</label>
+                                    <input type="text" id="id_date" name="date" value="{{ reservation.date|date:'d-m-Y' }}" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.time.id_for_label }}">Time:</label>
+                                    {{ form.time }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.no_of_people.id_for_label }}">No of people:</label>
+                                    {{ form.no_of_people }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="{{ form.special_request.id_for_label }}">Special request:</label>
+                                    {{ form.special_request }}
+                                </div>                                
+                                <div class="card-body">
+                                    <!-- other fields... -->
+                                    <a href="{% url 'reservation_list' %}" class="btn btn-info">Back</a>
+                                    <input value="Update" type="submit" class="btn btn-warning" href="{% url 'reservation_list' %}">
+                                    <a href="#" class="btn btn-danger">Delete</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                        allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // Initialize date picker
+        $('#datepicker').datepicker({
+            startDate: new Date(), // Prevent selecting dates in the past
+            autoclose: true,
+        });
+    });
+</script>
+<!-- Reservation End -->
